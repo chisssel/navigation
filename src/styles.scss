@@ -1,0 +1,118 @@
+@use "sass:map";
+
+$typography-map:(
+        "lable-large":(
+                "line-height": 20px,
+                "size": 14px,
+                "tracking": 0.1px,
+                "weight": 500
+        ),
+        "lable-medium":(
+                "line-height": 16px,
+                "size": 12px,
+                "tracking": 0.5px,
+                "weight": 500
+        ),
+        //"body-medium":(
+        //        "line-height": 20px,
+        //        "size": 14px,
+        //        "tracking": 0.25px,
+        //        "weight": 400
+        //),
+);
+
+@mixin apply-font($font-style){
+  $font-map: map.get($typography-map, $font-style);
+
+  line-height: map.get($font-map, "line-height");
+  font-size: map.get($font-map, "size");
+  letter-spacing: map.get($font-map, "tracking");
+  font-weight: map.get($font-map, "weight");
+}
+
+@mixin typography-lable-large{
+  @include apply-font("lable-large");
+}
+
+@mixin typography-lable-medium{
+  @include apply-font("lable-medium");
+}
+
+//@mixin typography-body-medium{
+//  @include apply-font("body-medium");
+//}
+
+:root {
+  color-scheme: light dark;
+
+  //light theme colors
+  --md-sys-color-background-light: rgb(248 249 255);
+  --md-sys-color-on-background-light: rgb(25 28 32);
+  --md-sys-color-surface-container-light: rgb(236 238 244);
+  --md-sys-color-on-surface-light: rgb(25 28 32);
+  --md-sys-color-on-surface-variant-light: rgb(67 71 78);
+
+  //dark theme colors
+  --md-sys-color-background-dark: rgb(17 20 24);
+  --md-sys-color-on-background-dark: rgb(225 226 232);
+  --md-sys-color-surface-container-dark: rgb(29 32 36);
+  --md-sys-color-on-surface-dark: rgb(225 226 232);
+  --md-sys-color-on-surface-variant-dark: rgb(195 198 207);
+
+  //theme colors
+  --md-sys-color-background: light-dark(var(--md-sys-color-background-light), var(--md-sys-color-background-dark));
+  --md-sys-color-on-background: light-dark(var(--md-sys-color-on-background-light), var(--md-sys-color-on-background-dark));
+  --md-sys-color-surface-container: light-dark(var(--md-sys-color-surface-container-light), var(--md-sys-color-surface-container-dark));
+  --md-sys-color-on-surface: light-dark(var(--md-sys-color-on-surface-light), var(---md-sys-color-on-surface-dark));
+  --md-sys-color-on-surface-variant: light-dark(var(--md-sys-color-on-surface-variant-light), var(--md-sys-color-on-surface-variant-dark));
+}
+
+
+
+
+
+
+
+
+
+
+
+html, body {
+  margin: 0;
+  height: 100dvh;
+}
+
+body {
+  display: grid;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+
+  &--folder{
+    font-size: 10px;
+  }
+}
+
+.container{
+  display: grid;
+}
+
+.navigation{
+  display: grid;
+  width: 360px;
+  align-content: center;
+}
+
+.navigation-list{
+
+}
+
+.navigation-list__group-item:hover{
+  background-color: lightgray;
+  border-radius: 16px;
+}
