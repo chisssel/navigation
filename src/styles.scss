@@ -1,5 +1,8 @@
 @use "sass:map";
 
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 412px;
+
 $typography-map:(
         "lable-large":(
                 "line-height": 20px,
@@ -13,12 +16,6 @@ $typography-map:(
                 "tracking": 0.5px,
                 "weight": 500
         ),
-        //"body-medium":(
-        //        "line-height": 20px,
-        //        "size": 14px,
-        //        "tracking": 0.25px,
-        //        "weight": 400
-        //),
 );
 
 @mixin apply-font($font-style){
@@ -67,16 +64,6 @@ $typography-map:(
   --md-sys-color-on-surface-variant: light-dark(var(--md-sys-color-on-surface-variant-light), var(--md-sys-color-on-surface-variant-dark));
 }
 
-
-
-
-
-
-
-
-
-
-
 html, body {
   margin: 0;
   height: 100dvh;
@@ -84,18 +71,16 @@ html, body {
 
 body {
   display: grid;
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
 }
 
 .material-symbols-outlined {
   font-variation-settings:
-          'FILL' 0,
+          'FILL' var(--icon-fill, 0),
           'wght' 400,
           'GRAD' 0,
           'opsz' 24;
-
-  &--folder{
-    font-size: 10px;
-  }
 }
 
 .container{
@@ -106,13 +91,64 @@ body {
   display: grid;
   width: 360px;
   align-content: center;
+  @include typography-lable-large;
+
+  @media(width < #{$breakpoint-tablet}){
+    //width: 100%;
+    display: grid;
+  }
 }
 
 .navigation-list{
 
 }
 
-.navigation-list__group-item:hover{
-  background-color: lightgray;
-  border-radius: 16px;
+.navigation-list__group-item{
+  display: grid;
+  //background-color: var(--md-sys-color-surface-container);
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 24px;
+
+  &__text{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--md-sys-color-on-background);
+  }
+
+  &__text span{
+    display: flex;
+    //flex-direction: row;
+  }
+
+  &:hover {
+    --_state-layer-display: block;
+    background-color: var(--md-sys-color-surface-container);
+    border-radius: 16px;
+    --icon-fill: 1;
+  }
+    &::after{
+      display: var(--_state-layer-display);
+      content: '';
+      position: absolute;
+      inset: 0;
+      //background-color: currentColor;
+      opacity: 0.08;
+      z-index: -1;
+      border-radius: 12px;
+  }
+}
+
+.navigation-list__group{
+  list-style: none;
+  padding: 0 12px 0 12px;
+  margin: 0;
+}
+
+.navigation-list__group-headline{
+  padding-left: 28px;
 }
