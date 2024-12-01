@@ -7,71 +7,107 @@
 <body>
 
 <div class="container">
-    <nav class="navigation">
-        <div class="navigation-list">
-            <div class="navigation-list__group-headline"><h4>Mail</h4></div>
-            <ul class="navigation-list__group">
-                <li class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined">Inbox</span>
-                    </div>
-                    <a href="#" class="navigation-list__group-item__text">Inbox <span>24</span></a>
+    <nav class="navigation-rail">
+        <div class="navigation-rail__list">
+            <ul class="navigation-rail__list-group">
+                <li class="navigation-rail__list-group__item">
+                    <a href="#" class="navigation-rail__list-group__item__icon">
+                        <span class="material-symbols-outlined">menu</span>
+                    </a>
+                    <button class="navigation-rail__list-group__item__button">
+                        <span class="material-symbols-outlined">edit</span>
+                    </button>
                 </li>
-                <li class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined">send</span>
-                    </div>
-                    <a href="#" class="navigation-list__group-item__text">Outbox</a>
+            </ul>
+            <ul class="navigation-rail__list-group">
+                <li class="navigation-rail__list-group__item">
+                    <a href="#" class="navigation-rail__list-group__item__icon">
+                        <span class="material-symbols-outlined">mail</span>
+                        <div class="navigation-rail__list-group__item__text">Mail</div>
+                    </a>
+                    <a href="#" class="navigation-rail__list-group__item__icon">
+                        <span class="material-symbols-outlined">folder</span>
+                        <div class="navigation-rail__list-group__item__text">Folders</div>
+                    </a>
+                    <a href="#" class="navigation-rail__list-group__item__icon">
+                        <span class="material-symbols-outlined">chronic</span>
+                        <div class="navigation-rail__list-group__item__text">Recent</div>
+                    </a>
+                    <a href="#" class="navigation-rail__list-group__item__icon">
+                        <span class="material-symbols-outlined">image</span>
+                        <div class="navigation-rail__list-group__item__text">Photos</div>
+                    </a>
                 </li>
-                <li class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined">favorite</span>
-                    </div>
-                    <a href="#" class="navigation-list__group-item__text">Favorites</a>
-                </li>
-                <li class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined">archive</span>
-                    </div>
-                    <a href="#" class="navigation-list__group-item__text">Archive</a>
-                </li>
-                <li class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined">delete</span>
-                    </div>
-                    <a href="#" class="navigation-list__group-item__text">Trash</a>
-                </li>
-                <hr class="navigation-list__group-item__line">
             </ul>
         </div>
-        <div class="navigation-list">
-            <div class="navigation-list__group-headline"><h4>Folders</h4></div>
-            <div class="navigation-list__group">
-                <div class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined material-symbols-outlined--folder">square</span>
+    </nav>
+
+
+
+    <nav class="navigation-drawer">
+        <div class="navigation-drawer__list">
+            <div class="navigation-drawer__list-group-headline"><h4>Mail</h4></div>
+            <ul class="navigation-drawer__list-group">
+                <li class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">Inbox</span>
                     </div>
-                    <a href="#" class="navigation-list__group-item__text">Folder</a>
-                </div>
-                <div class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined material-symbols-outlined--folder">circle</span>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Inbox <span>24</span></a>
+                </li>
+                <li class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">send</span>
                     </div>
-                    <a href="#" class="navigation-list__group-item__text">Folder</a>
-                </div>
-                <div class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined material-symbols-outlined--folder">square</span>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Outbox</a>
+                </li>
+                <li class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">favorite</span>
                     </div>
-                    <a href="#" class="navigation-list__group-item__text">Folder</a>
-                </div>
-                <div class="navigation-list__group-item">
-                    <div class="navigation-list__group-item__icon">
-                        <span class="material-symbols-outlined material-symbols-outlined--folder">circle</span>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Favorites</a>
+                </li>
+                <li class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">archive</span>
                     </div>
-                    <a href="#" class="navigation-list__group-item__text">Folder</a>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Archive</a>
+                </li>
+                <li class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">delete</span>
+                    </div>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Trash</a>
+                </li>
+                <hr class="navigation-drawer__list-group-item-line">
+            </ul>
+        </div>
+        <div class="navigation-drawer__list">
+            <div class="navigation-drawer__list-group-headline"><h4>Folders</h4></div>
+            <div class="navigation-drawer__list-group">
+                <div class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">square</span>
+                    </div>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Folder</a>
                 </div>
-<!--                <hr class="navigation-list__group-item__line">-->
+                <div class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">circle</span>
+                    </div>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Folder</a>
+                </div>
+                <div class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">square</span>
+                    </div>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Folder</a>
+                </div>
+                <div class="navigation-drawer__list-group__item">
+                    <div class="navigation-drawer__list-group__item-icon">
+                        <span class="material-symbols-outlined">circle</span>
+                    </div>
+                    <a href="#" class="navigation-drawer__list-group__item-text">Folder</a>
+                </div>
             </div>
         </div>
     </nav>
