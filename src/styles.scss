@@ -35,10 +35,6 @@ $typography-map:(
   @include apply-font("lable-medium");
 }
 
-//@mixin typography-body-medium{
-//  @include apply-font("body-medium");
-//}
-
 :root {
   color-scheme: light dark;
 
@@ -81,17 +77,28 @@ body {
           'wght' 400,
           'GRAD' 0,
           'opsz' 24;
-  @media((width > #{$breakpoint-phone}) or (width < #{$breakpoint-tablet})){
+  @media((width > #{$breakpoint-phone}) and (width < #{$breakpoint-tablet})){
     display: grid;
     justify-items: center;
     align-items: center;
     height: 32px;
+  }
+  @media(width < #{$breakpoint-phone}){
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 32px;
+    width: 64px;
   }
 }
 
 .container{
   display: grid;
 }
+
+
+/////////////////////////NAVIGATION-DRAWER///////////////////////////
+
 
 .navigation-drawer{
   display: grid;
@@ -161,6 +168,10 @@ body {
   padding-left: 28px;
 }
 
+
+/////////////////NAVIGATION-RAIL//////////////////////
+
+
 .navigation-rail{
   display: grid;
   grid-template-rows: min-content min-content;
@@ -180,7 +191,7 @@ body {
   //justify-content: space-between;
 }
 
-.navigation-rail__list-group{
+.navigation-rail__list-group {
   display: grid;
   padding: 0;
   list-style: none;
@@ -188,25 +199,30 @@ body {
   grid-template-rows: repeat(4, min-content);
 
 
-
-  &__item{
+  &__item {
     display: grid;
     gap: 16px;
 
 
-    &__icon{
+    &__icon {
       display: grid;
       color: var(--md-sys-color-on-background);
       text-decoration: none;
 
+      span:hover{
+        --_state-layer-display: block;
+        background-color: var(--md-sys-color-surface-container);
+        border-radius: 16px;
+        --icon-fill: 1;
+      }
     }
 
-    &__text{
+    &__text {
       display: grid;
       justify-items: center;
     }
 
-    &__button{
+    &__button {
       cursor: pointer;
       border: none;
       background: none;
@@ -219,29 +235,51 @@ body {
     }
 
   }
+}
 
 
+//////////////////////NAVIGATION-BAR///////////////////////
 
-  .navigation-rail__list-group__item__icon span:hover{
-    //background-color: var(--md-sys-color-on-surface-variant-light);
-    //border-radius: 16px;
-    --_state-layer-display: block;
-    background-color: var(--md-sys-color-surface-container);
-    border-radius: 16px;
-    --icon-fill: 1;
 
+.navigation-bar {
+  display: grid;
+  @include typography-lable-medium;
+
+  &__list{
+    display: grid;
+    align-items: end;
   }
 
+  &__list-group{
+    display: grid;
+    padding: 0;
+    justify-items: center;
 
-  //&__item-icon{
-  //  //display: grid;
-  //  color: var(--md-sys-color-on-background);
-  //  text-decoration: none;
-  //  &:hover {
-  //    --_state-layer-display: block;
-  //    background-color: var(--md-sys-color-surface-container);
-  //    border-radius: 16px;
-  //    --icon-fill: 1;
-  //  }
-  //}
+    &__item{
+      display: grid;
+      grid-template-columns: repeat(4, min-content);
+      gap: 16px;
+      padding: 16px;
+      color: var(--md-sys-color-on-background);
+
+      &__icon{
+        display: grid;
+        justify-items: center;
+        text-decoration: none;
+        color: var(--md-sys-color-on-background);
+
+        span:hover{
+          --_state-layer-display: block;
+          background-color: var(--md-sys-color-surface-container);
+          border-radius: 16px;
+          --icon-fill: 1;
+        }
+      }
+    }
+  }
+
+  @media (width > #{$breakpoint-phone}) {
+    display: none;
+  }
+
 }
