@@ -42,22 +42,37 @@ $typography-map:(
   --md-sys-color-background-light: rgb(248 249 255);
   --md-sys-color-on-background-light: rgb(25 28 32);
   --md-sys-color-surface-container-light: rgb(236 238 244);
-  --md-sys-color-on-surface-light: rgb(25 28 32);
-  --md-sys-color-on-surface-variant-light: rgb(67 71 78);
 
   //dark theme colors
   --md-sys-color-background-dark: rgb(17 20 24);
   --md-sys-color-on-background-dark: rgb(225 226 232);
   --md-sys-color-surface-container-dark: rgb(29 32 36);
-  --md-sys-color-on-surface-dark: rgb(225 226 232);
-  --md-sys-color-on-surface-variant-dark: rgb(195 198 207);
 
   //theme colors
   --md-sys-color-background: light-dark(var(--md-sys-color-background-light), var(--md-sys-color-background-dark));
   --md-sys-color-on-background: light-dark(var(--md-sys-color-on-background-light), var(--md-sys-color-on-background-dark));
   --md-sys-color-surface-container: light-dark(var(--md-sys-color-surface-container-light), var(--md-sys-color-surface-container-dark));
-  --md-sys-color-on-surface: light-dark(var(--md-sys-color-on-surface-light), var(---md-sys-color-on-surface-dark));
-  --md-sys-color-on-surface-variant: light-dark(var(--md-sys-color-on-surface-variant-light), var(--md-sys-color-on-surface-variant-dark));
+
+  //common variables
+  --common-border-radius: 32px;
+
+
+  //common variables for drawer
+  --common-drawer-width: 360px;
+  --button-color: #d371c7;
+  --hight-drawer-button: 56px;
+  --gapBetweenIconAndText: 12px;
+
+  //common variables for rail
+  --common-rail-width: 80px;
+  --width-rail-list: 56px;
+  --distanceBetweenList-group: 56px;
+  --gapBetweenItems: 16px;
+  --main-button-rail: 32px;
+
+  //common variables for bar
+  --distanceBetweenItems: 16px;
+
 }
 
 html, body {
@@ -94,6 +109,7 @@ body {
 
 .container{
   display: grid;
+  font-family: "Roboto", serif;
 }
 
 
@@ -102,7 +118,7 @@ body {
 
 .navigation-drawer{
   display: grid;
-  width: 360px;
+  width: var(--common-drawer-width);
   align-content: center;
   @include typography-lable-large;
 
@@ -123,8 +139,8 @@ body {
   //background-color: var(--md-sys-color-surface-container);
   grid-template-columns: min-content 1fr;
   align-items: center;
-  gap: 12px;
-  height: 56px;
+  gap: var(--gapBetweenIconAndText);
+  height: var(--hight-drawer-button);
   padding-left: 16px;
   padding-right: 24px;
 
@@ -143,7 +159,7 @@ body {
   &:hover {
     --_state-layer-display: block;
     background-color: var(--md-sys-color-surface-container);
-    border-radius: 16px;
+    border-radius: var(--common-border-radius);
     --icon-fill: 1;
   }
     &::after{
@@ -154,7 +170,7 @@ body {
       //background-color: currentColor;
       opacity: 0.08;
       z-index: -1;
-      border-radius: 12px;
+      border-radius: var(--common-border-radius);
   }
 }
 
@@ -177,7 +193,7 @@ body {
   grid-template-rows: min-content min-content;
   align-content: center;
   justify-content: center;
-  max-width: 80px;
+  max-width: var(--common-rail-width);
   @include typography-lable-medium;
   @media((width < #{$breakpoint-phone}) or (width > #{$breakpoint-tablet})){
     display: none;
@@ -186,8 +202,8 @@ body {
 
 .navigation-rail__list{
   display: grid;
-  gap: 24px;
-  width: 56px;
+  gap: var(--distanceBetweenList-group);
+  width: var(--width-rail-list);
   //justify-content: space-between;
 }
 
@@ -201,7 +217,7 @@ body {
 
   &__item {
     display: grid;
-    gap: 16px;
+    gap: var(--gapBetweenItems);
 
 
     &__icon {
@@ -212,7 +228,7 @@ body {
       span:hover{
         --_state-layer-display: block;
         background-color: var(--md-sys-color-surface-container);
-        border-radius: 16px;
+        border-radius: var(--common-border-radius);
         --icon-fill: 1;
       }
     }
@@ -226,12 +242,12 @@ body {
       cursor: pointer;
       border: none;
       background: none;
-      height: 32px;
+      height: var(--main-button-rail);
     }
 
     &__button:active {
-      background-color: #d371c7;
-      border-radius: 16px;
+      background-color: var(--button-color);
+      border-radius: var(--common-border-radius);
     }
 
   }
@@ -258,7 +274,7 @@ body {
     &__item{
       display: grid;
       grid-template-columns: repeat(4, min-content);
-      gap: 16px;
+      gap: var(--distanceBetweenItems);
       padding: 16px;
       color: var(--md-sys-color-on-background);
 
@@ -271,7 +287,7 @@ body {
         span:hover{
           --_state-layer-display: block;
           background-color: var(--md-sys-color-surface-container);
-          border-radius: 16px;
+          border-radius: var(--common-border-radius);
           --icon-fill: 1;
         }
       }
